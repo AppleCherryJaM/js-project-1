@@ -1,10 +1,6 @@
 
 let positionProm = 0;
-let slidesToShowProm = 4;
 
-window.addEventListener('resize',showProm);
-
-const slidesToScrollProm = 1;
 const trackProm = document.querySelector(".track-prom");
 const containerProm = document.querySelector(".container_prom");
 const itemProm = document.querySelector(".promotion_item");
@@ -13,15 +9,21 @@ const btn_backProm = document.querySelector(".btn_backProm");
 const btn_nextProm = document.querySelector(".btn_nextProm");
 const btn_back_circleProm = document.querySelector(".btn_back_circleProm");
 const btn_next_circleProm = document.querySelector(".btn_next_circleProm");
-const widthItemsForContainerProm =  itemProm.clientWidth * slidesToShowProm + (adaptWithScreen * slidesToShowProm);
-const itemWidthProm = itemProm.clientWidth + adaptWithScreen;
-const movePositionProm = slidesToScrollProm * itemWidthProm;
+let itemWidthProm = itemProm.clientWidth + adaptWithScreen() + 4;
+let movePositionProm = slidesToScroll * itemWidthProm;
 const itemsCountProm = PROMOTIONS.length;
+let widthItemsForContainerProm =  itemWidthProm * slidesToShow;
 
-containerProm.style.width = `${widthItemsForContainerProm}px`
+containerProm.style.width = `${widthItemsForContainerProm}px`;
+
+itemsProm.forEach((itemsProm) => {
+    itemsProm.style.marginRight = `${adaptWithScreen()}px`;
+});
 
 function widthContainerProm(){
-    const widthItemsForContainerProm =  itemProm.clientWidth * slidesToShowProm + (adaptWithScreen() * slidesToShowProm);
+    itemWidthProm = itemProm.clientWidth + adaptWithScreen() + 4;
+    movePositionProm = slidesToScroll * itemWidthProm;
+    widthItemsForContainerProm =  itemWidthProm * slidesToShow;
     containerProm.style.width = `${widthItemsForContainerProm}px`;
     itemsProm.forEach((itemsProm) => {
         itemsProm.style.marginRight = `${adaptWithScreen()}px`;
@@ -35,14 +37,14 @@ btn_back_circleProm.addEventListener('click', function (){slideBackProm(btn_next
 btn_backProm.addEventListener('click', function (){slideBackProm(btn_nextProm, btn_backProm)});
 
 function slideNextProm(btnN, btnB){
-    const itemsLeft = itemsCountProm -  (Math.abs(positionProm) + slidesToShowProm * itemWidthProm) / itemWidthProm;
-    positionProm -= itemsLeft > slidesToScrollProm ? movePositionProm : itemsLeft * itemWidthProm;
+    const itemsLeft = itemsCountProm -  (Math.abs(positionProm) + slidesToShow * itemWidthProm) / itemWidthProm;
+    positionProm -= itemsLeft > slidesToScroll ? movePositionProm : itemsLeft * itemWidthProm;
     checkButtonsProm(btnN, btnB);
     setPositionProm();
 }
 function slideBackProm(btnN, btnB){
     const itemsLeft = Math.abs(positionProm) / itemWidthProm;
-    positionProm += itemsLeft > slidesToScrollProm ? movePositionProm : itemsLeft * itemWidthProm;
+    positionProm += itemsLeft > slidesToScroll ? movePositionProm : itemsLeft * itemWidthProm;
     checkButtonsProm(btnN, btnB);
     setPositionProm();
 }
@@ -52,6 +54,16 @@ const setPositionProm = () =>{
 }
 
 const checkButtonsProm = (btnN, btnB) =>{
+    if(positionProm === 0){
+        btn_backProm.style.visibility = `hidden`;
+    }else {btn_backProm.style.visibility = `visible`;}
+
+    if(positionProm <=  -(itemsCountProm - slidesToShow) * itemWidthProm){
+        btn_nextProm.style.visibility = `hidden`;
+    }else{btn_nextProm.style.visibility = `visible`;}
+
     btnB.disabled = positionProm === 0;
-    btnN.disabled = positionProm <=  -(itemsCountProm - slidesToShowProm) * itemWidthProm;
+    btnN.disabled = positionProm <=  -(itemsCountProm - slidesToShow) * itemWidthProm;
 }
+
+checkButtonsProm(btn_nextProm, btn_backProm);

@@ -26,13 +26,13 @@ for (let i = 1; i <= BANNER.length; i++){
 const images = document.querySelectorAll('.slider_img_or_news .slider_line img');
 
 
-let width;
+let widthBanner;
 
 function init(){
-    width = document.querySelector('.slider_img_or_news').offsetWidth;
-    sliderLine.style.width = width * images.length + ' px';
+    widthBanner = document.querySelector('.slider_img_or_news').offsetWidth;
+    sliderLine.style.width = widthBanner * images.length + ' px';
     images.forEach( item => {
-        item.style.width = width + 'px';
+        item.style.width = widthBanner + 'px';
         item.style.height = 'auto';
     });
     rollSlider();
@@ -66,7 +66,7 @@ function rollSliderInTime(){
 }
 
 function rollSlider(){
-    sliderLine.style.transform = "translate(-"+count*width+"px)";
+    sliderLine.style.transform = "translate(-"+count*widthBanner+"px)";
     unLightsButtons();
     lightButton(count);
 }

@@ -3,8 +3,7 @@
     display: flex;
     margin-right: auto;
     margin-left: auto;
-    width: 90%;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 }
 

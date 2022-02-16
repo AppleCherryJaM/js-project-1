@@ -9,9 +9,8 @@
 
 .slider_wrapper_promotion{
     margin-top: 39px;
-    width: 90%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     margin-left: auto;
     margin-right: auto;
 }

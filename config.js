@@ -1,4 +1,5 @@
 
+/*
 const CURRENCY = "UAH";
 
 const CURRENCY_EXCHANGE = {
@@ -7,15 +8,16 @@ const CURRENCY_EXCHANGE = {
     RUB: 0.37,
     EUR: 33.38,
 };
+*/
 
-//const CURRENCY = "USD";
-//
-// const CURRENCY_EXCHANGE = {
-//     UAH: 0.036,
-//     USD: 1,
-//     RUB: 0.013,
-//     EUR: 1.2,
-// };
+const CURRENCY = "USD";
+
+const CURRENCY_EXCHANGE = {
+    UAH: 0.036,
+    USD: 1,
+    RUB: 0.013,
+   EUR: 1.2,
+};
 
 const BASKET = {
     elements: 3,

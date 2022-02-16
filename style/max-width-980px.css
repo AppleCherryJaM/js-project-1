@@ -1,13 +1,5 @@
 @media (min-width: 750px) and (max-width: 980px){
 
-    .line_img .img:nth-child(4n+4){
-        display: none;
-    }
-
-    .line_img .text:nth-child(4n+4){
-        display: none;
-    }
-
 
     .text_new_disble{
             display: none;
@@ -51,11 +43,6 @@
 
         .arrow_right{
             right: 80px;
-        }
-
-
-        .slider_wrapper{
-            width: 100%;
         }
 
         .arrow_img{

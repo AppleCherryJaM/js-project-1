@@ -1,5 +1,6 @@
 @media (min-width: 980px) and (max-width: 1440px){
 
+
     .text_new_disble{
         display: none;
     }
@@ -43,12 +44,6 @@
     .arrow_right{
         right: 80px;
     }
-
-
-    .slider_wrapper{
-        width: 100%;
-    }
-
     .arrow_img{
         display: none;
     }

@@ -2,6 +2,7 @@
 const newAllMass = noveltyArray.concat(recommendedArray).concat(saleArray);
 const countBuyItems = document.querySelector(".count_buy_items");
 const priceItems = document.querySelector(".price_items");
+const countItemsMob = document.querySelector(".count_items_top_car");
 let countItems = 0;
 let sumPrice = 0;
 let price = 0;
@@ -16,7 +17,10 @@ function  allPriceItem(price){
 function buyItems(){
     countItems++;
     countBuyItems.innerText = countItems;
+    countItemsMob.innerText = countItems;
 }
+
+
 
 function reply_click(clicked_id)
 {

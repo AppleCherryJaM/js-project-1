@@ -127,7 +127,7 @@ let createElement = (array) => {
             if(elemsCur === "EUR"){
                 elems *= CURRENCY_EXCHANGE.EUR;
             }
-            productCurrentPriceText = document.createTextNode(Math.round(elems).toString() + ' UAH');
+            productCurrentPriceText = document.createTextNode(Math.round(elems).toString() + ' ' + CURRENCY);
         } else productCurrentPriceText = document.createTextNode('Нет в наличии');
 
         currentPrice.appendChild(productCurrentPriceText);
